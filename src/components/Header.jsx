@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <BrowserRouter>
       <div id="header">
-        <h1>My Store</h1>
+        <h1 id="title">My Store</h1>
         <div className="nav-links">
           <Link to="/home">Home</Link>
           <Link to="/store">Store</Link>
