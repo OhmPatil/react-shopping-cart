@@ -1,6 +1,10 @@
+import '../styles/home.css'
+
 const Home = () => {
     return(
-        <div>Home Page</div>
+        <div id="home">
+            <h2>Home Page</h2>
+        </div>
     )
 }
 

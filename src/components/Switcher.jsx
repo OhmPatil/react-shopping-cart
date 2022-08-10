@@ -1,12 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Home from "../pages/home";
+import Store from "../pages/store";
 
 const Switcher = () => {
     return (
-        <BrowserRouter>
+        // <BrowserRouter>
             <Routes>
-                <Route path="" element={''}/>
+                <Route exact path="/" element={<Home/>}/>
+                <Route exact path="/home" element={<Home/>}/>
+                <Route exact path="/store" element={<Store/>}/>
             </Routes>
-        </BrowserRouter>
+        // </BrowserRouter>
     )
 }
 
