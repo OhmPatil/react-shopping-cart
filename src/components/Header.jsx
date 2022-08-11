@@ -1,18 +1,22 @@
 import "../styles/header.css";
 import { BrowserRouter, Link } from "react-router-dom";
 import Switcher from "./Switcher";
+import CartIcon from "./Cart";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <BrowserRouter>
       <div id="header">
-        <h1 id="title">My Store</h1>
+        <Link to="/">
+          <h1 id="title">My Store</h1>
+        </Link>
         <div className="nav-links">
           <Link to="/home">Home</Link>
           <Link to="/store">Store</Link>
+          <CartIcon amount={props.amount}/>
         </div>
       </div>
-      <Switcher/>
+      <Switcher />
     </BrowserRouter>
   );
 };

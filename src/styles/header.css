@@ -1,7 +1,7 @@
 #header{
-    min-height: 75px;
+    /* min-height: 75px; */
     height: 10vh;
-    max-height: 100px;
+    /* max-height: 100px; */
     background-color: rgba(0, 0, 0, .8);
     color: white;
     display: flex;
@@ -11,9 +11,15 @@
     padding-right: 50px;
 }
 
-#title{
-    display: flex;
+#header>a{
     width: 50%;
+}
+
+#title{
+    width: 50%;
+    text-decoration: none;
+    color: white;
+    
 }
 
 .nav-links{
@@ -27,4 +33,8 @@
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
+}
+
+a{
+    text-decoration: none;
 }

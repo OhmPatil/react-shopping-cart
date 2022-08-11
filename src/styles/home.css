@@ -1,6 +1,6 @@
 #home{
     height: 85vh;    
     width: 100vw;
-    border: 5px solid red;
+    border: 2px solid red;
     display: flex;
 }
