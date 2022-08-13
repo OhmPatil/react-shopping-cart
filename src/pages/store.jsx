@@ -1,6 +1,6 @@
 import '../styles/store.css'
 
-const Store = () => {
+const Store = (props) => {
     return(
         <div id='store'>
             <h2>Store Page</h2>
