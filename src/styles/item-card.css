@@ -4,7 +4,7 @@
     width: 350px;
     height: 450px;
     border: 2px solid red;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 

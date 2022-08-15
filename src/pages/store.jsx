@@ -10,25 +10,35 @@ const Store = (props) => {
       mode: "cors",
     });
     const data = await response.json();
-    let allData = data
-    return allData;
+
+    return data;
   };
 
   useEffect(() => {
     async function loadData() {
-        let reqData = []
-        reqData = await fetchData()
-        setProducts(reqData)
+      let reqData = [];
+      let allData = await fetchData();
+
+      allData.forEach((item) => {
+        if (
+          item.category === "men's clothing" ||
+          item.category === "women's clothing"
+        ) {
+          reqData.push(item);
+        }
+      });
+
+      setProducts(reqData);
     }
 
     loadData();
   }, []);
 
-  console.log('from store',products);
+  console.log("from store", products);
 
   return (
     <div id="store">
-      <CardContainer products={products}/>
+      <CardContainer products={products} />
     </div>
   );
 };
