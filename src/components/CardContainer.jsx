@@ -11,6 +11,8 @@ const CardContainer = (props) => {
             image={item.image}
             title={item.title}
             price={item.price}
+            id={item.id}
+            handleClick={props.handleClick}
           />
         );
       })}

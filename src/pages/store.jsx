@@ -14,6 +14,13 @@ const Store = (props) => {
     return data;
   };
 
+  const fetchItem = async (itemID) => {
+    const response = await fetch(`https://fakestoreapi.com/products/${itemID}`, {mode:"cors"})
+    const item = await response.json()
+
+    return item
+  }
+
   useEffect(() => {
     async function loadData() {
       let reqData = [];
@@ -36,9 +43,14 @@ const Store = (props) => {
 
   console.log("from store", products);
 
+  const handleAddtoCart = async (e) => {
+    let item = await fetchItem(e.target.id)
+    console.log(item);
+  }
+
   return (
     <div id="store">
-      <CardContainer products={products} />
+      <CardContainer products={products} handleClick={handleAddtoCart}/>
     </div>
   );
 };
