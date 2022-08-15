@@ -13,7 +13,9 @@ const Header = (props) => {
         <div className="nav-links">
           <Link to="/home">Home</Link>
           <Link to="/store">Store</Link>
-          <CartIcon amount={props.amount}/>
+          <Link to="/cart">
+            <CartIcon amount={props.amount} />
+          </Link>
         </div>
       </div>
       <Switcher />

@@ -6,7 +6,7 @@ const Store = (props) => {
   const [products, setProducts] = useState([]);
 
   const fetchData = async () => {
-    const response = await fetch("https://fakestoreapi.com/products/category/men's clothing", {
+    const response = await fetch("https://fakestoreapi.com/products/", {
       mode: "cors",
     });
     const data = await response.json();
