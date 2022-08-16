@@ -5,7 +5,7 @@ import CartIcon from "./Cart";
 
 const Header = (props) => {
   return (
-    <BrowserRouter>
+    <>
       <div id="header">
         <Link to="/">
           <h1 id="title">My Store</h1>
@@ -18,8 +18,8 @@ const Header = (props) => {
           </Link>
         </div>
       </div>
-      <Switcher />
-    </BrowserRouter>
+      {/* <Switcher /> */}
+    </>
   );
 };
 

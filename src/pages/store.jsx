@@ -4,6 +4,7 @@ import CardContainer from "../components/CardContainer";
 
 const Store = (props) => {
   const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const fetchData = async () => {
     const response = await fetch("https://fakestoreapi.com/products/", {
@@ -45,12 +46,14 @@ const Store = (props) => {
 
   const handleAddtoCart = async (e) => {
     let item = await fetchItem(e.target.id)
-    console.log(item);
+    setCartItems(prevItems => [...prevItems, item])
+    console.log('cart', cartItems);
   }
+
 
   return (
     <div id="store">
-      <CardContainer products={products} handleClick={handleAddtoCart}/>
+      <CardContainer products={products} handleClick={props.handleAddtoCart}/>
     </div>
   );
 };
