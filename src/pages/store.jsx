@@ -4,7 +4,6 @@ import CardContainer from "../components/CardContainer";
 
 const Store = (props) => {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
 
   const fetchData = async () => {
     const response = await fetch("https://fakestoreapi.com/products/", {
@@ -13,14 +12,7 @@ const Store = (props) => {
     const data = await response.json();
 
     return data;
-  };
-
-  const fetchItem = async (itemID) => {
-    const response = await fetch(`https://fakestoreapi.com/products/${itemID}`, {mode:"cors"})
-    const item = await response.json()
-
-    return item
-  }
+  }; 
 
   useEffect(() => {
     async function loadData() {
@@ -43,13 +35,6 @@ const Store = (props) => {
   }, []);
 
   console.log("from store", products);
-
-  const handleAddtoCart = async (e) => {
-    let item = await fetchItem(e.target.id)
-    setCartItems(prevItems => [...prevItems, item])
-    console.log('cart', cartItems);
-  }
-
 
   return (
     <div id="store">

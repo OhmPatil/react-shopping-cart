@@ -6,16 +6,10 @@ import Home from "./pages/home";
 import Store from "./pages/store";
 import Cart from "./pages/cart";
 import React, { useState } from "react";
+import fetchItem from "./utils/FetchItem";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([])
-
-  const fetchItem = async (itemID) => {
-    const response = await fetch(`https://fakestoreapi.com/products/${itemID}`, {mode:"cors"})
-    const item = await response.json()
-
-    return item
-  }
 
   const handleAddtoCart = async (e) => {
     let item = await fetchItem(e.target.id)
