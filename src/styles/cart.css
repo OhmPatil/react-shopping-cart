@@ -6,16 +6,17 @@
 
 .product-section{
     border: 5px solid blue;
-    width: 50%;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    overflow: auto;
 }
 
 .payment-section{
     border: 5px solid brown;
-    width: 50%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -13,6 +13,7 @@ const CardContainer = (props) => {
             price={item.price}
             id={item.id}
             handleClick={props.handleClick}
+            showAdd={true}
           />
         );
       })}

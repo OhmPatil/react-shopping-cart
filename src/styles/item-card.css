@@ -26,3 +26,8 @@ img{
     font-size: larger;
     font-weight: 600;
 }
+
+.quantity{
+    display: flex;
+    gap: 5px;
+}

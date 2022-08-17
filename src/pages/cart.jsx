@@ -2,7 +2,9 @@ import "../styles/cart.css";
 import ItemCard from "../components/ItemCard";
 
 const Cart = (props) => {
-  let items = props.cartItems;
+  let items = []
+  items = props.cartItems;
+  
   console.log("fromCART", items);
   return (
     <div id="cart">
@@ -14,6 +16,7 @@ const Cart = (props) => {
               id={item.id}
               title={item.title}
               price={item.price}
+              showAdd={false}
             />
           );
         })}

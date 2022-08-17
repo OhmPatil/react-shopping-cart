@@ -8,7 +8,17 @@ const ItemCard = (props) => {
       </div>
       <div className="item-title">{props.title}</div>
       <div className="item-price">${props.price}</div>
-      <button id={props.id} onClick={(e) => props.handleClick(e)}>Add to Cart</button>
+      <div className="quantity">
+        <button>-</button>
+        <div>1</div>
+        <button>+</button>
+      </div>
+      {props.showAdd && (
+        <button id={props.id} onClick={(e) => props.handleClick(e)}>
+          Add to Cart
+        </button>
+      )}
+      {/* <button id={props.id} onClick={(e) => props.handleClick(e)}>Add to Cart</button> */}
     </div>
   );
 };
