@@ -11,8 +11,10 @@ import fetchItem from "./utils/FetchItem";
 const App = () => {
   const [cartItems, setCartItems] = useState([])
 
-  const handleAddtoCart = async (e) => {
+  const handleAddtoCart = async (e, quantity) => {
     let item = await fetchItem(e.target.id)
+    item['quantity'] = quantity
+    console.log(item);
     setCartItems(prevItems => [...prevItems, item])
     console.log('cart', cartItems);
   }

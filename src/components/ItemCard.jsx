@@ -1,6 +1,20 @@
+import { useState } from "react";
 import "../styles/item-card.css";
 
 const ItemCard = (props) => {
+
+  const [quantity, setQuantity] = useState(1)
+
+  const incrementQuantity = () => {
+    setQuantity(prevQuantity => prevQuantity+1)
+  }
+
+  const decrementQuantity = () => {
+    if (quantity > 1){
+      setQuantity(prevQuantity => prevQuantity-1)
+    }
+  }
+  
   return (
     <div className="card">
       <div className="item-img">
@@ -9,12 +23,12 @@ const ItemCard = (props) => {
       <div className="item-title">{props.title}</div>
       <div className="item-price">${props.price}</div>
       <div className="quantity">
-        <button>-</button>
-        <div>1</div>
-        <button>+</button>
+        <button onClick={decrementQuantity}>-</button>
+        <div>{quantity}</div>
+        <button onClick={incrementQuantity}>+</button>
       </div>
       {props.showAdd && (
-        <button id={props.id} onClick={(e) => props.handleClick(e)}>
+        <button id={props.id} onClick={(e) => props.handleClick(e, quantity)}>
           Add to Cart
         </button>
       )}
