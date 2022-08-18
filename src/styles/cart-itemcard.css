@@ -1,0 +1,22 @@
+.cart-itemcard{
+    width: 600px;
+    height: 150px;
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-itemimg{
+    width: 100px;
+    height: 140px;
+}
+
+.cart-title-price{
+    border: 2px solid blue;
+    width: 300px;
+}
+
+.quantity{
+    border: 2px solid green;
+}

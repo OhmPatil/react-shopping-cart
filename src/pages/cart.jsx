@@ -1,5 +1,6 @@
 import "../styles/cart.css";
-import ItemCard from "../components/ItemCard";
+// import ItemCard from "../components/ItemCard";
+import CartItemCard from "../components/Cart-ItemCard";
 
 const Cart = (props) => {
   let items = []
@@ -11,12 +12,12 @@ const Cart = (props) => {
       <div className="product-section">
         {items.map((item) => {
           return (
-            <ItemCard
+            <CartItemCard
               image={item.image}
               id={item.id}
               title={item.title}
               price={item.price}
-              showAdd={false}
+              quantity={item.quantity}
             />
           );
         })}

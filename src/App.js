@@ -6,7 +6,6 @@ import Home from "./pages/home";
 import Store from "./pages/store";
 import Cart from "./pages/cart";
 import React, { useState, useEffect } from "react";
-import fetchItem from "./utils/FetchItem";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([])
@@ -43,12 +42,14 @@ const App = () => {
 
 
   const handleAddtoCart = async (e, quantity) => {
-    let item = await fetchItem(e.target.id)
+    let itemID = parseInt(e.target.id)
+    let item = products.find(item => item.id===itemID)
     item['quantity'] = quantity
     console.log(item);
     setCartItems(prevItems => [...prevItems, item])
     console.log('cart', cartItems);
   }
+
 
   return (
     <>
