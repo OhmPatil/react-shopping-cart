@@ -31,6 +31,9 @@ const CartItemCard = (props) => {
                 <button onClick={incrementQuantity}>+</button>
             </div>
             <div className='cart-itemtotalprice'>${props.price * quantity}</div>
+            <div className='cart-itemdelete'>
+                <button onClick={() => props.handleDelete(props.index)}>Delete</button>
+            </div>
 
         </div>
     )
