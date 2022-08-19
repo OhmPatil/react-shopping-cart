@@ -6,18 +6,21 @@ import { useEffect } from "react";
 
 const Cart = (props) => {
   const [items, setItems] = useState(props.cartItems)
-  
+  const [subtotal, setSubTotal] = useState(0)
+
   console.log("fromCART", items);
 
-  const handleDelete = (index) => {
-    items.splice(index, 1)
-    setItems(items)
+  const handleDelete = (id) => {
+    let tempItems = items
+    let item = tempItems.find(item => item.id === id)
+    const index = tempItems.indexOf(item)
+
+    tempItems.splice(index, 1)
+    setItems(tempItems)
+    setSubTotal(prevTotal => prevTotal+1)
   }
 
-  useEffect(() => {
-    
-  },
-   [items])
+  // useEffect(() => {setItems(items)}, [items])
   
   return (
     <div id="cart">
@@ -31,7 +34,6 @@ const Cart = (props) => {
               title={item.title}
               price={item.price}
               quantity={item.quantity}
-              index={index}
               handleDelete={handleDelete}
             />
           );

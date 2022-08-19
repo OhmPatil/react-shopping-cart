@@ -32,7 +32,7 @@ const CartItemCard = (props) => {
             </div>
             <div className='cart-itemtotalprice'>${props.price * quantity}</div>
             <div className='cart-itemdelete'>
-                <button onClick={() => props.handleDelete(props.index)}>Delete</button>
+                <button onClick={() => props.handleDelete(props.id)}>Delete</button>
             </div>
 
         </div>
