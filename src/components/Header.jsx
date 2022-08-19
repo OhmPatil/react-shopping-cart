@@ -1,7 +1,6 @@
 import "../styles/header.css";
-import { BrowserRouter, Link } from "react-router-dom";
-import Switcher from "./Switcher";
-import CartIcon from "./Cart";
+import { Link } from "react-router-dom";
+import CartIcon from "./Cart-Icon";
 
 const Header = (props) => {
   return (

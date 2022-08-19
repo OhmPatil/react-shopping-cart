@@ -18,6 +18,7 @@ const Cart = (props) => {
     localItems.splice(index, 1)
     setItems(localItems)
     calculateSubtotal()
+    props.decrementCartHeaderAmount()
   }
 
   function handleQuantityChange(id,  quantity){

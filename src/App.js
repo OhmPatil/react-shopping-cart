@@ -10,6 +10,7 @@ import React, { useState, useEffect } from "react";
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
+  const [cartHeaderAmount, setCartHeaderAmount] = useState(0)
 
   const fetchData = async () => {
     const response = await fetch("https://fakestoreapi.com/products/", {
@@ -50,14 +51,19 @@ const App = () => {
       let item = products.find((item) => item.id === itemID);
       item["quantity"] = quantity;
       setCartItems((prevItems) => [...prevItems, item]);
+      setCartHeaderAmount(prevAmount => prevAmount+1)
     }
     console.log("cart", cartItems);
   };
 
+  const decrementCartHeaderAmount = () => {
+    setCartHeaderAmount(prevAmount => prevAmount-1)
+  }
+
   return (
     <>
       <BrowserRouter>
-        <Header />
+        <Header amount={cartHeaderAmount}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -67,7 +73,7 @@ const App = () => {
               <Store handleAddtoCart={handleAddtoCart} products={products} />
             }
           />
-          <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+          <Route path="/cart" element={<Cart cartItems={cartItems} decrementCartHeaderAmount={decrementCartHeaderAmount} />} />
         </Routes>
         <Footer />
       </BrowserRouter>
