@@ -12,7 +12,7 @@ const CardContainer = (props) => {
             title={item.title}
             price={item.price}
             id={item.id}
-            handleClick={props.handleClick}
+            handleAddtoCart={props.handleAddtoCart}
             showAdd={true}
           />
         );

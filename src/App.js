@@ -8,7 +8,7 @@ import Cart from "./pages/cart";
 import React, { useState, useEffect } from "react";
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
 
   const fetchData = async () => {
@@ -18,7 +18,7 @@ const App = () => {
     const data = await response.json();
 
     return data;
-  }; 
+  };
 
   useEffect(() => {
     async function loadData() {
@@ -40,15 +40,19 @@ const App = () => {
     loadData();
   }, []);
 
-
   const handleAddtoCart = async (e, quantity) => {
-    let itemID = parseInt(e.target.id)
-    let item = products.find(item => item.id===itemID)
-    item['quantity'] = quantity
-    setCartItems(prevItems => [...prevItems, item])
-    console.log('cart', cartItems);
-  }
+    let itemID = parseInt(e.target.id);
 
+    let itemInCart = cartItems.find((item) => item.id === itemID);
+    if (itemInCart !== undefined) {
+      itemInCart.quantity += quantity;
+    } else {
+      let item = products.find((item) => item.id === itemID);
+      item["quantity"] = quantity;
+      setCartItems((prevItems) => [...prevItems, item]);
+    }
+    console.log("cart", cartItems);
+  };
 
   return (
     <>
@@ -57,8 +61,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/store" element={<Store handleAddtoCart={handleAddtoCart} products={products}/>} />
-          <Route path="/cart" element={<Cart cartItems={cartItems}/>} />
+          <Route
+            path="/store"
+            element={
+              <Store handleAddtoCart={handleAddtoCart} products={products} />
+            }
+          />
+          <Route path="/cart" element={<Cart cartItems={cartItems} />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -28,7 +28,7 @@ const ItemCard = (props) => {
         <button onClick={incrementQuantity}>+</button>
       </div>
       {props.showAdd && (
-        <button id={props.id} onClick={(e) => props.handleClick(e, quantity)}>
+        <button id={props.id} onClick={(e) => props.handleAddtoCart(e, quantity)}>
           Add to Cart
         </button>
       )}

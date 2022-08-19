@@ -8,7 +8,7 @@ const Store = (props) => {
 
   return (
     <div id="store">
-      <CardContainer products={props.products} handleClick={props.handleAddtoCart}/>
+      <CardContainer products={props.products} handleAddtoCart={props.handleAddtoCart}/>
     </div>
   );
 };
