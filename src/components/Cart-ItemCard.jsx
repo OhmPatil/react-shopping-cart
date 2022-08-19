@@ -6,14 +6,14 @@ const CartItemCard = (props) => {
     const [quantity, setQuantity] = useState(props.quantity)
 
     const incrementQuantity = () => {
+        props.handleQuantityChange(props.id, quantity+1)
         setQuantity(prevQuantity => prevQuantity+1)
-        props.handleQuantityChange(props.id, quantity)
       }
     
       const decrementQuantity = () => {
         if (quantity > 1){
+            props.handleQuantityChange(props.id, quantity-1)
           setQuantity(prevQuantity => prevQuantity-1)
-          props.handleQuantityChange(props.id, quantity)
         }
       }
       
@@ -32,7 +32,7 @@ const CartItemCard = (props) => {
                 <div>{quantity}</div>
                 <button onClick={incrementQuantity}>+</button>
             </div>
-            <div className='cart-itemtotalprice'>${props.price * quantity}</div>
+            <div className='cart-itemtotalprice'>${(props.price * quantity).toFixed(2)}</div>
             <div className='cart-itemdelete'>
                 <button onClick={() => props.handleDelete(props.id)}>Delete</button>
             </div>

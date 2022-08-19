@@ -17,7 +17,7 @@ const Cart = (props) => {
 
     localItems.splice(index, 1)
     setItems(localItems)
-    calculateSubtotal(items)
+    calculateSubtotal()
   }
 
   function handleQuantityChange(id,  quantity){
@@ -26,19 +26,19 @@ const Cart = (props) => {
     localItem.quantity = quantity
 
     setItems(localItems)
-    calculateSubtotal(localItems)
+    calculateSubtotal()
     console.log('QUANTITY', localItems); 
   }
 
-  function calculateSubtotal(cartItems) {
+  function calculateSubtotal() {
     let tempSubtotal = 0
-    cartItems.forEach(item => {
+    items.forEach(item => {
       tempSubtotal+=item.price*item.quantity
     })
     setSubTotal(tempSubtotal)
   }
 
-  useEffect(() => {calculateSubtotal(props.cartItems)}, [])
+  useEffect(() => {calculateSubtotal()})
 
   
   return (
@@ -60,7 +60,7 @@ const Cart = (props) => {
         })}
       </div>
       <div className="payment-section">
-        <h1>{subtotal}</h1>
+        <h1>{subtotal.toFixed(2)}</h1>
       </div>
     </div>
   );
