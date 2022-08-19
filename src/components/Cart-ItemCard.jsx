@@ -7,11 +7,13 @@ const CartItemCard = (props) => {
 
     const incrementQuantity = () => {
         setQuantity(prevQuantity => prevQuantity+1)
+        props.handleQuantityChange(props.id, quantity)
       }
     
       const decrementQuantity = () => {
         if (quantity > 1){
           setQuantity(prevQuantity => prevQuantity-1)
+          props.handleQuantityChange(props.id, quantity)
         }
       }
       

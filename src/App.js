@@ -45,7 +45,6 @@ const App = () => {
     let itemID = parseInt(e.target.id)
     let item = products.find(item => item.id===itemID)
     item['quantity'] = quantity
-    console.log(item);
     setCartItems(prevItems => [...prevItems, item])
     console.log('cart', cartItems);
   }

@@ -20,13 +20,22 @@ const Cart = (props) => {
     calculateSubtotal(items)
   }
 
+  function handleQuantityChange(id,  quantity){
+    let localItems = items
+    let localItem = localItems.find(item => item.id === id)
+    localItem.quantity = quantity
+
+    setItems(localItems)
+    calculateSubtotal(localItems)
+    console.log('QUANTITY', localItems); 
+  }
+
   function calculateSubtotal(cartItems) {
     let tempSubtotal = 0
     cartItems.forEach(item => {
       tempSubtotal+=item.price*item.quantity
     })
     setSubTotal(tempSubtotal)
-    console.log('SUBTOTAL', subtotal);
   }
 
   useEffect(() => {calculateSubtotal(props.cartItems)}, [])
@@ -45,6 +54,7 @@ const Cart = (props) => {
               price={item.price}
               quantity={item.quantity}
               handleDelete={handleDelete}
+              handleQuantityChange={handleQuantityChange}
             />
           );
         })}
