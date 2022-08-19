@@ -11,16 +11,26 @@ const Cart = (props) => {
   console.log("fromCART", items);
 
   const handleDelete = (id) => {
-    let tempItems = items
-    let item = tempItems.find(item => item.id === id)
-    const index = tempItems.indexOf(item)
+    let localItems = items
+    let item = localItems.find(item => item.id === id)
+    const index = localItems.indexOf(item)
 
-    tempItems.splice(index, 1)
-    setItems(tempItems)
-    setSubTotal(prevTotal => prevTotal+1)
+    localItems.splice(index, 1)
+    setItems(localItems)
+    calculateSubtotal(items)
   }
 
-  // useEffect(() => {setItems(items)}, [items])
+  function calculateSubtotal(cartItems) {
+    let tempSubtotal = 0
+    cartItems.forEach(item => {
+      tempSubtotal+=item.price*item.quantity
+    })
+    setSubTotal(tempSubtotal)
+    console.log('SUBTOTAL', subtotal);
+  }
+
+  useEffect(() => {calculateSubtotal(props.cartItems)}, [])
+
   
   return (
     <div id="cart">
@@ -40,7 +50,7 @@ const Cart = (props) => {
         })}
       </div>
       <div className="payment-section">
-        <h1>Payment stuff</h1>
+        <h1>{subtotal}</h1>
       </div>
     </div>
   );
