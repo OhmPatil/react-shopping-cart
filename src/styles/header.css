@@ -1,14 +1,16 @@
+:root{
+    font-family: 'poppins';
+}
+
 #header{
-    /* min-height: 75px; */
     height: 10vh;
-    /* max-height: 100px; */
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 1);
     color: white;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 #header>a{
@@ -16,10 +18,10 @@
 }
 
 #title{
-    width: 50%;
+    width: 100%;
     text-decoration: none;
     color: white;
-    
+    font-size: 2rem;
 }
 
 .nav-links{
@@ -35,6 +37,6 @@
     font-size: 1.2rem;
 }
 
-a{
-    text-decoration: none;
+.nav-links>*:hover{
+    border-bottom: 2px solid white;
 }
