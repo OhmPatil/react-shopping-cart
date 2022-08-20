@@ -6,20 +6,12 @@ import Home from "./pages/home";
 import Store from "./pages/store";
 import Cart from "./pages/cart";
 import React, { useState, useEffect } from "react";
+import fetchData from "./utils/fetchData";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [cartHeaderAmount, setCartHeaderAmount] = useState(0)
-
-  const fetchData = async () => {
-    const response = await fetch("https://fakestoreapi.com/products/", {
-      mode: "cors",
-    });
-    const data = await response.json();
-
-    return data;
-  };
 
   useEffect(() => {
     async function loadData() {
