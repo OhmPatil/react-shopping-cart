@@ -22,13 +22,13 @@ const ItemCard = (props) => {
       </div>
       <div className="item-title">{props.title}</div>
       <div className="item-price">${props.price}</div>
-      <div className="quantity">
-        <button onClick={decrementQuantity}>-</button>
-        <div>{quantity}</div>
-        <button onClick={incrementQuantity}>+</button>
+      <div className="store-quantity-container">
+        <button className="quantity-button" onClick={decrementQuantity}>−</button>
+        <div className="quantity-value">{quantity}</div>
+        <button className="quantity-button" onClick={incrementQuantity}>+</button>
       </div>
       {props.showAdd && (
-        <button id={props.id} onClick={(e) => props.handleAddtoCart(e, quantity)}>
+        <button className="addtocart-button" id={props.id} onClick={(e) => props.handleAddtoCart(e, quantity)}>
           Add to Cart
         </button>
       )}

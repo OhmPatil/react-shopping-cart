@@ -5,7 +5,7 @@ const CartIcon = (props) => {
     return(
         <div id='container'>
             <FaShoppingCart size='1.5rem'/>
-            <div id='amount'>{props.amount}</div>
+            {props.amount !== 0 && (<div id='amount'>{props.amount}</div>)}
         </div>
     )
 }
