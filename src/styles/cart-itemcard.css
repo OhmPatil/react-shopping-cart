@@ -1,22 +1,45 @@
 .cart-itemcard{
     width: 600px;
     height: 150px;
-    border: 2px solid red;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
 }
 
 .cart-itemimg{
-    width: 100px;
-    height: 140px;
+    width: 80px;
+    height: 120px;
 }
 
 .cart-title-price{
-    border: 2px solid blue;
     width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.quantity{
-    border: 2px solid green;
+.cart-itemtotalprice{
+    font-weight: 600;
+}
+
+.delete-button{
+    border: 1px solid black;
+    width: 50px;
+    height: 25px;
+    background-color: rgb(253, 253, 253);
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.delete-button:hover{
+    background-color: rgb(247, 84, 84);
+    cursor: pointer;
+    color: white;
 }

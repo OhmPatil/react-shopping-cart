@@ -27,14 +27,14 @@ const CartItemCard = (props) => {
                 <div>{props.title}</div>
                 <div>${props.price}</div>
             </div>
-            <div className='quantity'>
-                <button onClick={decrementQuantity}>-</button>
+            <div className='store-quantity-container'>
+                <button className='quantity-button' onClick={decrementQuantity}>−</button>
                 <div>{quantity}</div>
-                <button onClick={incrementQuantity}>+</button>
+                <button className='quantity-button' onClick={incrementQuantity}>+</button>
             </div>
             <div className='cart-itemtotalprice'>${(props.price * quantity).toFixed(2)}</div>
             <div className='cart-itemdelete'>
-                <button onClick={() => props.handleDelete(props.id)}>Delete</button>
+                <button className='delete-button' onClick={() => props.handleDelete(props.id)}>Delete</button>
             </div>
 
         </div>
