@@ -54,13 +54,13 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="react-shopping-cart">
         <Header amount={cartHeaderAmount}/>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/home" element={<Home />} />
           <Route
-            path="/store"
+            exact path="/store"
             element={
               <Store handleAddtoCart={handleAddtoCart} products={products} />
             }
