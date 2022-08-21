@@ -45,7 +45,6 @@ const App = () => {
       setCartItems((prevItems) => [...prevItems, item]);
       setCartHeaderAmount(prevAmount => prevAmount+1)
     }
-    console.log("cart", cartItems);
   };
 
   const decrementCartHeaderAmount = () => {

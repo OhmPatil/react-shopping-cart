@@ -32,7 +32,6 @@ const ItemCard = (props) => {
           Add to Cart
         </button>
       )}
-      {/* <button id={props.id} onClick={(e) => props.handleClick(e)}>Add to Cart</button> */}
     </div>
   );
 };
