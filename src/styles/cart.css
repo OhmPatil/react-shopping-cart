@@ -1,18 +1,35 @@
+.cart-title-container{
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#title-1, #title-2{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title-2{
+    width: 30%;
+}
+
 #cart{
-    height: 85vh;
+    height: 80vh;
     width: 100vw;
     display: flex;
 }
 
 .product-section{
     border: 5px solid blue;
-    width: 70%;
+    width: 70vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    overflow: auto;
     flex-direction: column;
+    overflow: auto;
+    align-items: center;
     gap: 10px
 }
 
@@ -20,6 +37,35 @@
     border: 5px solid brown;
     width: 30%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: 10px;
+    font-size: 1.20rem;
+}
+
+.subtotal-container, .shipping-container, .total-container{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.divider{
+    width: 95%;
+}
+
+#checkout-button{
+    height: 3rem;
+    width: 70%;
+    background-color: black;
+    border: 2px solid white;
+    transition: all 0.2s;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+#checkout-button:hover{
+    filter: invert(1);
+    cursor: pointer;
 }

@@ -43,6 +43,11 @@ const Cart = (props) => {
 
   
   return (
+    <>
+    <div className="cart-title-container">
+      <div id="title-1">Your Cart</div>
+      <div id="title-2">Order Summary</div>
+    </div>
     <div id="cart">
       <div className="product-section">
         {items.map((item, index) => {
@@ -61,9 +66,23 @@ const Cart = (props) => {
         })}
       </div>
       <div className="payment-section">
-        <h1>{subtotal.toFixed(2)}</h1>
+        <div className="subtotal-container">
+          <div>Subtotal</div>
+          <div>${subtotal.toFixed(2)}</div>
+        </div>
+        <div className="shipping-container">
+          <div>Shipping</div>
+          <div>FREE</div>
+        </div>
+        <hr className="divider"></hr>
+        <div className="total-container">
+          <div><strong>Total</strong></div>
+          <div><strong>${subtotal.toFixed(2)}</strong></div>
+        </div>
+        <button id="checkout-button">Checkout</button>
       </div>
     </div>
+    </>
   );
 };
 
