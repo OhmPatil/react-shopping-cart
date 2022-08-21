@@ -1,9 +1,29 @@
+:root{
+    --warmwhite: #F8F5F2
+}
+
 #footer{
     height: 5vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 1);
-    color: white;
+    color: var(--warmwhite);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#footer-text, #footer-text>*{
+    color: var(--warmwhite);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+#footer-logo{
+    color: inherit;
+}
+
+#footer-logo>*:hover{
+    color: aqua;
 }
