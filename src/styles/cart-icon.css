@@ -8,3 +8,26 @@
 #container:hover{
     cursor: pointer;
 }
+
+#amount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6px;
+    height: 6px;
+    background-color: cyan;
+    color: black;
+    padding: 6px;
+    border-radius: 50%;
+    position: relative;
+    top: .7rem;
+    right: 1rem;
+}
+
+p {
+    font-size: .9rem;
+    font-family: sans-serif;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
