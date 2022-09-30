@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../styles/item-card.css";
+import buttonVariants from "../framer-variants/buttonVariants";
+import { motion } from "framer-motion";
 
 const ItemCard = (props) => {
 
@@ -16,7 +18,10 @@ const ItemCard = (props) => {
   }
   
   return (
-    <div className="card">
+    <motion.div className="card"
+      initial={{y:100, opacity:0}}
+      animate={{y:0, opacity:1}}
+      transition={{duration:0.5, delay:0}}>
       <div className="item-img">
         <img src={props.image} alt={props.id} />
       </div>
@@ -28,11 +33,15 @@ const ItemCard = (props) => {
         <button className="quantity-button" onClick={incrementQuantity}>+</button>
       </div>
       {props.showAdd && (
-        <button className="addtocart-button" id={props.id} onClick={(e) => props.handleAddtoCart(e, quantity)}>
+        <motion.button
+          variants={buttonVariants}
+          whileTap='click'
+          whileHover='hover'
+          className="addtocart-button" id={props.id} onClick={(e) => props.handleAddtoCart(e, quantity)}>
           Add to Cart
-        </button>
+        </motion.button>
       )}
-    </div>
+    </motion.div>
   );
 };
 

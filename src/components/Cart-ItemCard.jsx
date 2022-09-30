@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../styles/cart-itemcard.css'
+import { motion } from "framer-motion";
 
 const CartItemCard = (props) => {
 
@@ -19,7 +20,10 @@ const CartItemCard = (props) => {
       
 
     return (
-        <div className='cart-itemcard'>
+        <motion.div className='cart-itemcard'
+        initial={{y:100, opacity:0}}
+        animate={{y:0, opacity:1}}
+        transition={{duration:0.5, delay:0}}>
             <div className='cart-itemimg'>
                 <img src={props.image} alt={props.id}></img>
             </div>
@@ -37,7 +41,7 @@ const CartItemCard = (props) => {
                 <button className='delete-button' onClick={() => props.handleDelete(props.id)}>Delete</button>
             </div>
 
-        </div>
+        </motion.div>
     )
 }
 

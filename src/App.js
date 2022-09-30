@@ -1,7 +1,7 @@
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Store from "./pages/store";
 import Cart from "./pages/cart";
@@ -53,7 +53,7 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter basename="react-shopping-cart">
+      <HashRouter>
         <Header amount={cartHeaderAmount}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -67,7 +67,7 @@ const App = () => {
           <Route path="/cart" element={<Cart cartItems={cartItems} decrementCartHeaderAmount={decrementCartHeaderAmount} />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 };

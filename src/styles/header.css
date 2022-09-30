@@ -36,8 +36,9 @@
     color: var(--warmwhite);
     text-decoration: none;
     font-size: 1.2rem;
+    transition: all 0.25s;
 }
 
 .nav-links>*:hover{
-    border-bottom: 2px solid white;
+    transform: scale(1.1);
 }

@@ -2,6 +2,8 @@ import "../styles/cart.css";
 import CartItemCard from "../components/Cart-ItemCard";
 import { useState } from "react";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
+import orderSummaryVariants from "../framer-variants/orderSummaryVariants";
 
 const Cart = (props) => {
   const [items, setItems] = useState(props.cartItems);
@@ -41,10 +43,15 @@ const Cart = (props) => {
 
   return (
     <>
-      <div className="cart-title-container">
+      <motion.div
+        className="cart-title-container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <div id="title-1">Your Cart</div>
         <div id="title-2">Order Summary</div>
-      </div>
+      </motion.div>
       <div id="cart">
         <div className="product-section">
           {items.map((item, index) => {
@@ -63,24 +70,53 @@ const Cart = (props) => {
           })}
         </div>
         <div className="payment-section">
-          <div className="subtotal-container">
+          <motion.div
+            className="subtotal-container"
+            variants={orderSummaryVariants}
+            initial="initial"
+            animate="visible"
+          >
             <div>Subtotal</div>
             <div>${subtotal.toFixed(2)}</div>
-          </div>
-          <div className="shipping-container">
+          </motion.div>
+          <motion.div
+            className="shipping-container"
+            variants={orderSummaryVariants}
+            initial="initial"
+            animate="visible"
+          >
             <div>Shipping</div>
             <div>FREE</div>
-          </div>
-          <hr className="divider"></hr>
-          <div className="total-container">
+          </motion.div>
+          <motion.hr
+            className="divider"
+            variants={orderSummaryVariants}
+            initial="initial"
+            animate="visible"
+          ></motion.hr>
+          <motion.div
+            className="total-container"
+            variants={orderSummaryVariants}
+            initial="initial"
+            animate="visible"
+          >
             <div>
               <strong>Total</strong>
             </div>
             <div>
               <strong>${subtotal.toFixed(2)}</strong>
             </div>
-          </div>
-          <button id="checkout-button">Checkout</button>
+          </motion.div>
+          <motion.button
+            id="checkout-button"
+            variants={orderSummaryVariants}
+            initial="initial"
+            animate="visible"
+            whileHover="hover"
+            whileTap="click"
+          >
+            Checkout
+          </motion.button>
         </div>
       </div>
     </>
